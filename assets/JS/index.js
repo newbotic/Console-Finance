@@ -101,8 +101,22 @@ console.log("Total Months: " + numRows);
 // Task 2 calculate the net total amount of Profit/Losses over the entire period.
 //iterate over the elements of the array
 
-netTotal = 0;
+var netTotal = 0;
 for (let i = 0; i < numRows; i++) {
   netTotal += finances[i][1];
 }
 console.log("Total: $" + netTotal);
+
+// Task 3 the average of the change in Profit/Losses over the entire period
+var sumChanges = 0;
+for (var i = 1; i < finances.length; i++) {
+  var change = finances[i][1] - finances[i - 1][1];
+  sumChanges += change;
+}
+// calculate the average of the changes
+var averageChange = sumChanges /(finances.length -1);
+ console.log('Average Change: '+ averageChange);
+
+// Task 4 find the greatest increase in Profit/Losses (date and amount) over the entire period.
+
+
