@@ -137,3 +137,22 @@ for (var i = 1; i < finances.length; i++) {
 }
 // Print the result
 console.log("Greatest Increase in Profits/Losses: "  + greatIncreaseMonth +' '+ '($'+greatIncrease +')');
+
+
+// Task 5 find the greatest decrease in Profit/Losses (date and amount) over the entire period.
+
+var greatDecrease = 0;
+var greatDecreaseMonth = '';
+
+// Use a loop to iterate over the elements of the array
+for (var i = 1; i < finances.length; i++) {
+  // Calculate the change between consecutive months
+  var change = finances[i][1] - finances[i - 1][1];
+
+  if (change < greatDecrease) {
+    greatDecrease = change;
+    greatDecreaseMonth = finances[i][0]; // Store the month
+  }
+}
+// Print the result
+console.log("Greatest Decrease in Profits/Losses: "  + greatDecreaseMonth +' '+ '($'+greatDecrease +')');
