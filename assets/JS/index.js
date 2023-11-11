@@ -114,9 +114,26 @@ for (var i = 1; i < finances.length; i++) {
   sumChanges += change;
 }
 // calculate the average of the changes
-var averageChange = sumChanges /(finances.length -1);
- console.log('Average Change: '+ averageChange);
+var averageChange = sumChanges / (finances.length - 1);
+var roundedNumber = parseFloat(averageChange.toFixed(2));
+console.log("Average Change: " + roundedNumber);
 
 // Task 4 find the greatest increase in Profit/Losses (date and amount) over the entire period.
 
+// Declare variables to store information about the greatest increase
+var greatIncrease = 0;
+var greatIncreaseMonth = '';
 
+// Use a loop to iterate over the elements of the array
+for (var i = 1; i < finances.length; i++) {
+  // Calculate the change between consecutive months
+  var change = finances[i][1] - finances[i - 1][1];
+
+  // Check if the current change is the biggest increase so far
+  if (change > greatIncrease) {
+    greatIncrease = change;
+    greatIncreaseMonth = finances[i][0]; // Store the month
+  }
+}
+// Print the result
+console.log("Greatest Increase in Profits/Losses: "  + greatIncreaseMonth +' '+ '($'+greatIncrease +')');
